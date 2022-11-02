@@ -1,0 +1,10 @@
+{
+	"extends": "@hakatashi/eslint-config/typescript",
+	"parser": "@typescript-eslint/parser",
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-no-bind": "off",
+		"import/default": "off",
+		"import/no-named-as-default-member": "off"
+	}
+}
