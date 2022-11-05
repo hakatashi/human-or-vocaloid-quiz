@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-player": "^2.11.0"
   },
   "devDependencies": {
     "@hakatashi/eslint-config": "^1.19.0",
+    "@modyfi/vite-plugin-yaml": "^1.0.3",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@vitejs/plugin-react": "^2.2.0",
