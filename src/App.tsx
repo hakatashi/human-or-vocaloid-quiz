@@ -1,11 +1,14 @@
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
 import songs from '../data/songs.yml';
 import style from './App.module.css';
 
 const App = () => {
-	const [count, setCount] = useState(0);
 	const [volume, setVolume] = useState(0);
+	const [playing, setPlaying] = useState(false);
+	const playerEl = useRef(null);
+
+	const song = songs[0];
 
 	useEffect(() => {
 		const intervalId = setInterval(() => {
@@ -14,6 +17,13 @@ const App = () => {
 		return () => {
 			clearInterval(intervalId);
 		};
+	}, []);
+
+	const onStart = useCallback(() => {
+		if (playerEl.current) {
+			playerEl.current.seekTo(song.startTime);
+		}
+		setPlaying(true);
 	}, []);
 
 	return (
@@ -25,16 +35,17 @@ const App = () => {
 					今から流れる音声を聞いて、<br/>
 					人間の歌声か合成音声の歌声か当ててください
 				</p>
-				<button type="button" onClick={() => setCount((oldCount) => oldCount + 1)}>
+				<button type="button" onClick={onStart}>
 					はじめる
 				</button>
 			</div>
 			{songs.map((song) => (
 				<div key={song.url} className={style.player}>
 					<ReactPlayer
+						ref={playerEl}
 						url={song.url}
 						controls
-						playing={false}
+						playing={playing}
 						volume={(volume % 100) / 300}
 					/>
 				</div>

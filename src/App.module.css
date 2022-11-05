@@ -9,4 +9,5 @@
 .player {
 	/* visibility: hidden; */
 	display: inline-block;
+	pointer-events: none;
 }

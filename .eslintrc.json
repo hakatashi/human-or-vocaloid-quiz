@@ -2,6 +2,7 @@
 	"extends": "@hakatashi/eslint-config/typescript",
 	"parser": "@typescript-eslint/parser",
 	"rules": {
+		"prefer-destructuring": "off",
 		"react/react-in-jsx-scope": "off",
 		"react/jsx-no-bind": "off",
 		"import/default": "off",
