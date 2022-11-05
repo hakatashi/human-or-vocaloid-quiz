@@ -16,7 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": [
-      "@modyfi/vite-plugin-yaml/modules"
+      "./data/types"
     ]
   },
   "include": ["src"],
