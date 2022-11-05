@@ -1,23 +1,43 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import ReactPlayer from 'react-player';
 import songs from '../data/songs.yml';
 import style from './App.module.css';
 
 const App = () => {
 	const [count, setCount] = useState(0);
+	const [volume, setVolume] = useState(0);
+
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			setVolume((val) => val + 1);
+		}, 100);
+		return () => {
+			clearInterval(intervalId);
+		};
+	}, []);
+
 	return (
 		<div className={style.root}>
-			<h1>Vite + React</h1>
+			<h1>人間かボカロかクイズ</h1>
+			<p className={style.subtitle}>made by <a href="https://github.com/hakatashi">@hakatashi</a></p>
 			<div className={style.card}>
-				<button type="button" onClick={() => setCount((oldCount) => oldCount + 1)}>
-					count is {count}
-				</button>
 				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
+					今から流れる音声を聞いて、<br/>
+					人間の歌声か合成音声の歌声か当ててください
 				</p>
+				<button type="button" onClick={() => setCount((oldCount) => oldCount + 1)}>
+					はじめる
+				</button>
 			</div>
 			{songs.map((song) => (
-				<ReactPlayer key={song.url} url={song.url} controls/>
+				<div key={song.url} className={style.player}>
+					<ReactPlayer
+						url={song.url}
+						controls
+						playing={false}
+						volume={(volume % 100) / 300}
+					/>
+				</div>
 			))}
 		</div>
 	);
