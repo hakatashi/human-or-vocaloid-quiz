@@ -5,9 +5,3 @@
 .card {
 	padding: 2em;
 }
-
-.player {
-	/* visibility: hidden; */
-	display: inline-block;
-	pointer-events: none;
-}

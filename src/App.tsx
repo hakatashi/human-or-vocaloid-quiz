@@ -1,17 +1,14 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
-import songs from '../data/songs.yml';
 import style from './App.module.css';
+import Game from './Game';
 
 type Phase = 'start' | 'game' | 'finish';
 
 const App = () => {
 	const [tick, setTick] = useState(0);
-	const [playing, setPlaying] = useState(false);
 	const [phase, setPhase] = useState<Phase>('start');
 	const playerEl = useRef<ReactPlayer>(null);
-
-	const song = songs[0];
 
 	useEffect(() => {
 		const intervalId = setInterval(() => {
@@ -25,14 +22,6 @@ const App = () => {
 	const onClickStart = useCallback(() => {
 		setPhase('game');
 	}, [playerEl]);
-
-	const onPlayerReady = useCallback(() => {
-		console.log('onReady');
-		if (playerEl.current) {
-			playerEl.current.seekTo(song.startTime);
-		}
-		setPlaying(true);
-	}, []);
 
 	return (
 		<div className={style.root}>
@@ -52,16 +41,7 @@ const App = () => {
 				</div>
 			)}
 			{phase === 'game' && (
-				<div className={style.player}>
-					<ReactPlayer
-						ref={playerEl}
-						url={song.url}
-						controls
-						playing={playing}
-						volume={(tick % 100) / 300}
-						onReady={onPlayerReady}
-					/>
-				</div>
+				<Game tick={tick}/>
 			)}
 		</div>
 	);
