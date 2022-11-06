@@ -9,7 +9,7 @@
 	right: 0;
 	bottom: 0;
 
-	background-color: #213547;
+	background-color: #242424;
 }
 
 @media (prefers-color-scheme: light) {
@@ -41,10 +41,23 @@
 	align-items: center;
 	transform: translateY(0%);
 	transition: transform 0.8s;
+
+	color: white;
 }
 
 .playerOverlay.hidden {
 	transform: translateY(-100%);
+}
+
+.replayButton {
+	font-size: 20px;
+}
+
+
+.replayButton.disabled {
+	opacity: 0.5;
+	cursor: inherit;
+	pointer-events: none;
 }
 
 .options {
@@ -76,6 +89,7 @@
 	font-size: 0.5em;
 	line-height: 1.2em;
 	opacity: 0.5;
+	margin: 0;
 }
 
 .answerDescription {
@@ -85,8 +99,8 @@
 
 .songInfo {
 	display: inline-block;
-	font-size: 0.7rem;
-	line-height: 1rem;
+	font-size: 0.6rem;
+	line-height: 0.8rem;
 	font-family: sans-serif;
 }
 

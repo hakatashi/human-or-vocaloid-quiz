@@ -1,11 +1,23 @@
 -
-  url: https://www.youtube.com/watch?v=6FaE_CBO2zk
-  startTime: 152
-  endTime: 190
+  url: https://www.youtube.com/watch?v=o51Hd6YjCVI
+  startTime: 58
+  endTime: 90
+  chorusTime: 73
+  isHuman: false
+  title: ロウワー
+  artist: ぬゆり
+  singer: 夏色花梨
+  engine: Cevio AI
+
+-
+  url: https://www.youtube.com/watch?v=pIF-UiQCc7I
+  startTime: 38
+  endTime: 68
   isHuman: true
-  title: 瞳を閉じて
-  artist: 平井堅
-  singer: 片瀬萌南
+  title: シニカルナイトプラン
+  artist: Ayase
+  singer: dっと。
+  chorusTime: 58
 
 -
   url: https://www.youtube.com/watch?v=AIAQ8Q5bj8c
@@ -17,14 +29,13 @@
   singer: 魔乃アロエ
 
 -
-  url: https://www.youtube.com/watch?v=o51Hd6YjCVI
-  startTime: 58
-  endTime: 90
-  isHuman: false
-  title: ロウワー
-  artist: ぬゆり
-  singer: 夏色花梨
-  engine: Cevio AI
+  url: https://www.youtube.com/watch?v=6FaE_CBO2zk
+  startTime: 152
+  endTime: 190
+  isHuman: true
+  title: 瞳を閉じて
+  artist: 平井堅
+  singer: 片瀬萌南
 
 -
   url: https://www.youtube.com/watch?v=lkel9YC3m68
@@ -100,15 +111,6 @@
   title: 一番星
   artist: 北村瞳
   singer: 夕見子
-
--
-  url: https://www.youtube.com/watch?v=pIF-UiQCc7I
-  startTime: 40
-  endTime: 70
-  isHuman: true
-  title: シニカルナイトプラン
-  artist: Ayase
-  singer: dっと。
 
 -
   url: https://www.youtube.com/watch?v=m-icqIf1pbg

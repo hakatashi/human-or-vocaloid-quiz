@@ -13,6 +13,9 @@ interface Prop {
 
 const Game = ({tick, index}: Prop) => {
 	const [playing, setPlaying] = useState(false);
+	const [volume, setVolume] = useState(1);
+	const [finished, setFinished] = useState(false);
+	const [replayCount, setReplayCount] = useState(1);
 	const [selectedOption, setSelectedOption] = useState<boolean | null>(null);
 	const playerEl = useRef<ReactPlayer>(null);
 
@@ -27,17 +30,43 @@ const Game = ({tick, index}: Prop) => {
 
 	const onClickOption = useCallback((option: boolean) => {
 		setSelectedOption(option);
+		setPlaying(true);
+		setVolume(1);
+		playerEl.current?.seekTo(song.chorusTime);
 	}, []);
 
-	let volume = 1;
-	if (playerEl.current) {
-		const currentTime = playerEl.current.getCurrentTime();
-		if (currentTime < song.startTime + FADE_DURATION) {
-			volume = (currentTime - song.startTime) / FADE_DURATION;
-		} else if (song.endTime - FADE_DURATION < currentTime) {
-			volume = (song.endTime - currentTime) / FADE_DURATION;
+	const onClickReplay = useCallback(() => {
+		if (replayCount <= 0) {
+			return;
 		}
-	}
+
+		playerEl.current?.seekTo(song.startTime);
+
+		setPlaying(true);
+		setFinished(false);
+		setReplayCount(replayCount - 1);
+	}, [replayCount, playerEl]);
+
+	const onPlayerProgress = useCallback(() => {
+		if (!playerEl.current || selectedOption !== null) {
+			return;
+		}
+
+		const currentTime = playerEl.current.getCurrentTime();
+
+		if (currentTime < song.startTime + FADE_DURATION) {
+			setVolume((currentTime - song.startTime) / FADE_DURATION);
+		} else if (song.endTime - FADE_DURATION < currentTime) {
+			setVolume((song.endTime - currentTime) / FADE_DURATION);
+		} else {
+			setVolume(1);
+		}
+
+		if (song.endTime < currentTime && !finished) {
+			setPlaying(false);
+			setFinished(true);
+		}
+	}, [playerEl, finished, selectedOption]);
 
 	return (
 		<div>
@@ -92,6 +121,12 @@ const Game = ({tick, index}: Prop) => {
 									<th>シンガー</th>
 									<td>{song.singer}</td>
 								</tr>
+								{song.engine && (
+									<tr>
+										<th>歌唱エンジン</th>
+										<td>{song.engine}</td>
+									</tr>
+								)}
 							</table>
 						</div>
 						<div className={style.row}>
@@ -118,7 +153,20 @@ const Game = ({tick, index}: Prop) => {
 			</div>
 			<div className={style.player}>
 				<div className={classNames(style.playerOverlay, {[style.hidden]: selectedOption !== null})}>
-					♪♪♪
+					{finished ? (
+						<button
+							type="button"
+							className={classNames(
+								style.replayButton,
+								{[style.disabled]: replayCount === 0},
+							)}
+							onClick={onClickReplay}
+						>
+							リプレイ (あと{replayCount}回)
+						</button>
+					) : (
+						'♪♪♪'
+					)}
 				</div>
 				<ReactPlayer
 					ref={playerEl}
@@ -129,6 +177,8 @@ const Game = ({tick, index}: Prop) => {
 					playing={playing}
 					volume={volume}
 					onReady={onPlayerReady}
+					onProgress={onPlayerProgress}
+					progressInterval={100}
 				/>
 			</div>
 			<p className={style.note}>
