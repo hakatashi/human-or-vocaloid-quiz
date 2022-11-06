@@ -1,3 +1,23 @@
+.descriptionSection {
+	position: relative;
+}
+
+.answerSection {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	background-color: #213547;
+}
+
+@media (prefers-color-scheme: light) {
+	.answerSection {
+		background-color: white;
+	}
+}
+
 .player {
 	/* visibility: hidden; */
 	display: inline-block;
@@ -56,4 +76,47 @@
 	font-size: 0.5em;
 	line-height: 1.2em;
 	opacity: 0.5;
+}
+
+.answerDescription {
+	margin-top: 0;
+	margin-bottom: 0.2rem;
+}
+
+.songInfo {
+	display: inline-block;
+	font-size: 0.7rem;
+	line-height: 1rem;
+	font-family: sans-serif;
+}
+
+.songInfo th {
+	font-weight: bold;
+	padding-right: 1.2rem;
+	text-align: right;
+}
+
+.songInfo td {
+	text-align: left;
+}
+
+.youtubeLink {
+	display: inline-block;
+	border-radius: 8px;
+	color: white;
+	padding: 0.6em 1.2em;
+	font-size: 0.5rem;
+	line-height: 1.2em;
+	font-weight: 500;
+	font-family: inherit;
+	background-color: red;
+	cursor: pointer;
+}
+
+.youtubeLink:hover {
+	color: white;
+}
+
+.nextQuestion {
+	margin-top: 0.5rem;
 }
