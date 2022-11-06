@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import {Howl, Howler} from 'howler';
 import React, {useCallback, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
 import songs from '../data/songs.yml';
@@ -11,6 +12,14 @@ interface Prop {
 	index: number,
 }
 
+const correctSound = new Howl({
+	src: ['correct.mp3'],
+});
+
+const incorrectSound = new Howl({
+	src: ['incorrect.mp3'],
+});
+
 const Game = ({tick, index}: Prop) => {
 	const [playing, setPlaying] = useState(false);
 	const [volume, setVolume] = useState(1);
@@ -21,6 +30,8 @@ const Game = ({tick, index}: Prop) => {
 
 	const song = songs[0];
 
+	const isCorrect = selectedOption === null ? null : selectedOption === song.isHuman;
+
 	const onPlayerReady = useCallback(() => {
 		if (playerEl.current) {
 			playerEl.current.seekTo(song.startTime);
@@ -29,6 +40,12 @@ const Game = ({tick, index}: Prop) => {
 	}, [tick]);
 
 	const onClickOption = useCallback((option: boolean) => {
+		if (option === song.isHuman) {
+			correctSound.play();
+		} else {
+			incorrectSound.play();
+		}
+
 		setSelectedOption(option);
 		setPlaying(true);
 		setVolume(1);
@@ -105,7 +122,11 @@ const Game = ({tick, index}: Prop) => {
 				</div>
 				{selectedOption !== null && (
 					<div className={style.answerSection}>
-						<h2>正解！</h2>
+						{isCorrect ? (
+							<h2>正解！</h2>
+						) : (
+							<h2 className={style.incorrectAnswer}>不正解⋯⋯</h2>
+						)}
 						<p className={style.answerDescription}>
 							この歌声は
 							{song.isHuman ? <span className="human">人間</span> : <span className="vocaloid">合成音声</span>}

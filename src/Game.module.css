@@ -92,6 +92,10 @@
 	margin: 0;
 }
 
+.incorrectAnswer {
+	color: #2196f3;
+}
+
 .answerDescription {
 	margin-top: 0;
 	margin-bottom: 0.2rem;
