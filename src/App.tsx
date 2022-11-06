@@ -31,8 +31,9 @@ const App = () => {
 					<p className={style.subtitle}>made by <a href="https://github.com/hakatashi">@hakatashi</a></p>
 					<div className={style.card}>
 						<p>
-							今から流れる音声を聞いて、<br/>
-							人間の歌声か合成音声の歌声か当ててください
+							これから流れる音声を聞いて、<br/>
+							人間の歌声か合成音声の歌声か<wbr/>
+							当ててください
 						</p>
 						<button type="button" onClick={onClickStart}>
 							はじめる
@@ -41,7 +42,7 @@ const App = () => {
 				</div>
 			)}
 			{phase === 'game' && (
-				<Game tick={tick}/>
+				<Game tick={tick} index={1}/>
 			)}
 		</div>
 	);

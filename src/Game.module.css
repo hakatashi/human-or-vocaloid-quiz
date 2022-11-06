@@ -1,5 +1,52 @@
 .player {
 	/* visibility: hidden; */
 	display: inline-block;
+	position: relative;
 	pointer-events: none;
+	max-width: 100vmin;
+	width: 10rem;
+	height: 5.72rem;
+}
+
+.playerOverlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: dimgrey;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.options {
+	display: flex;
+	margin: 0 auto;
+	padding: 0.5rem 0;
+	max-width: 100vmin;
+	width: 20rem;
+}
+
+.option {
+	flex: 0 0 50%;
+}
+
+.optionName {
+	font-size: 1.5em;
+}
+
+.description {
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 0.5em;
+	line-height: 1.2em;
+	opacity: 0.5;
+}
+
+.note {
+	font-family: sans-serif;
+	font-size: 0.5em;
+	line-height: 1.2em;
 }
