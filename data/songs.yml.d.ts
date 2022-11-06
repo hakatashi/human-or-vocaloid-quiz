@@ -6,6 +6,7 @@ interface Song {
 	title: string,
 	artist: string,
 	singer: string,
+	engine?: string,
 }
 
 declare const value: Song[];

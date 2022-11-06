@@ -39,17 +39,15 @@ const App = () => {
 					はじめる
 				</button>
 			</div>
-			{songs.map((song) => (
-				<div key={song.url} className={style.player}>
-					<ReactPlayer
-						ref={playerEl}
-						url={song.url}
-						controls
-						playing={playing}
-						volume={(volume % 100) / 300}
-					/>
-				</div>
-			))}
+			<div className={style.player}>
+				<ReactPlayer
+					ref={playerEl}
+					url={song.url}
+					controls
+					playing={false}
+					volume={(volume % 100) / 300}
+				/>
+			</div>
 		</div>
 	);
 };
