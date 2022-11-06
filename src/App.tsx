@@ -27,12 +27,12 @@ const App = () => {
 		<div className={style.root}>
 			{phase === 'start' && (
 				<div>
-					<h1>人間かボカロかクイズ</h1>
+					<h1><span className="human">人間</span>か<span className="vocaloid">ボカロ</span>かクイズ</h1>
 					<p className={style.subtitle}>made by <a href="https://github.com/hakatashi">@hakatashi</a></p>
 					<div className={style.card}>
 						<p>
 							これから流れる音声を聞いて、<br/>
-							人間の歌声か合成音声の歌声か<wbr/>
+							<span className="human">人間</span>の歌声か<span className="vocaloid">合成音声</span>の歌声か<wbr/>
 							当ててください
 						</p>
 						<button type="button" onClick={onClickStart}>

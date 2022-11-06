@@ -39,7 +39,7 @@ body {
 	min-height: 100vh;
 }
 
-h1 {
+h1, h2 {
 	font-size: 9vmin;
 	line-height: 1.1;
 	margin: 0;
@@ -47,15 +47,15 @@ h1 {
 
 button {
 	border-radius: 8px;
-	border: 1px solid transparent;
+	border: 1px solid dimgray;
 	padding: 0.6em 1.2em;
 	font-size: 1em;
 	font-weight: 500;
 	font-family: inherit;
 	background-color: #1a1a1a;
 	cursor: pointer;
-	transition: border-color 0.25s;
 }
+
 button:hover {
 	border-color: #646cff;
 }
@@ -75,4 +75,12 @@ button:focus-visible {
 	button {
 		background-color: #f9f9f9;
 	}
+}
+
+.human {
+	color: #f44336;
+}
+
+.vocaloid {
+	color: #4caf50;
 }

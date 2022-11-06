@@ -2,10 +2,10 @@
 	/* visibility: hidden; */
 	display: inline-block;
 	position: relative;
-	pointer-events: none;
 	max-width: 100vmin;
-	width: 10rem;
-	height: 5.72rem;
+	width: 320px;
+	height: 180px;
+	overflow: hidden;
 }
 
 .playerOverlay {
@@ -19,6 +19,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transform: translateY(0%);
+	transition: transform 0.8s;
+}
+
+.playerOverlay.hidden {
+	transform: translateY(-100%);
 }
 
 .options {
@@ -49,4 +55,5 @@
 	font-family: sans-serif;
 	font-size: 0.5em;
 	line-height: 1.2em;
+	opacity: 0.5;
 }
