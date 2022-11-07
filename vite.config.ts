@@ -8,4 +8,9 @@ export default defineConfig({
 		react(),
 		viteYaml(),
 	],
+	server: {
+		headers: {
+			'Access-Control-Allow-Origin': '',
+		},
+	},
 });

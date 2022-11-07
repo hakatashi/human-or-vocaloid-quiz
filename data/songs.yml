@@ -1,13 +1,12 @@
 -
-  url: https://www.nicovideo.jp/watch/sm40853323
-  startTime: 1
-  endTime: 90
-  chorusTime: 73
-  isHuman: false
-  title: ロウワー
-  artist: ぬゆり
-  singer: 夏色花梨
-  engine: Cevio AI
+  url: https://www.youtube.com/watch?v=pIF-UiQCc7I
+  startTime: 38
+  endTime: 68
+  chorusTime: 58
+  isHuman: true
+  title: シニカルナイトプラン
+  artist: Ayase
+  singer: dっと。
 
 -
   url: https://www.youtube.com/watch?v=o51Hd6YjCVI
@@ -21,19 +20,10 @@
   engine: Cevio AI
 
 -
-  url: https://www.youtube.com/watch?v=pIF-UiQCc7I
-  startTime: 38
-  endTime: 68
-  isHuman: true
-  title: シニカルナイトプラン
-  artist: Ayase
-  singer: dっと。
-  chorusTime: 58
-
--
   url: https://www.youtube.com/watch?v=AIAQ8Q5bj8c
   startTime: 124
   endTime: 154
+  chorusTime: 70
   isHuman: true
   title: ハッピーシンセサイザ
   artist: Easypop
@@ -43,6 +33,7 @@
   url: https://www.youtube.com/watch?v=6FaE_CBO2zk
   startTime: 152
   endTime: 190
+  chorusTime: 97
   isHuman: true
   title: 瞳を閉じて
   artist: 平井堅
@@ -52,9 +43,10 @@
   url: https://www.youtube.com/watch?v=lkel9YC3m68
   startTime: 47
   endTime: 77
+  chorusTime: 51
   isHuman: false
   title: Merry-Go-Round
-  artist: 不明
+  artist: Dreamtonics
   singer: Mai
   engine: SynthesizerV AI
 
@@ -62,6 +54,7 @@
   url: https://www.youtube.com/watch?v=Snn2gWq-3KY
   startTime: 129
   endTime: 148
+  chorusTime: 8
   isHuman: true
   title: Nyanyanyanyanyanyanya!
   artist: daniwell
@@ -71,6 +64,7 @@
   url: https://www.youtube.com/watch?v=m1JaFPWGKRc
   startTime: 0
   endTime: 28
+  chorusTime: 52
   isHuman: false
   title: ヒメタルネ
   artist: 湊いつき
@@ -81,6 +75,7 @@
   url: https://www.youtube.com/watch?v=z5iorD0UFgo
   startTime: 10
   endTime: 36
+  chorusTime: 61
   isHuman: true
   title: 気になるあの娘
   artist: 相対性理論
@@ -90,6 +85,7 @@
   url: https://www.youtube.com/watch?v=D0HvoG7PbR4
   startTime: 16
   endTime: 46
+  chorusTime: 32
   isHuman: false
   title: ただ一度とないあの夏へ
   artist: 椎乃味醂
@@ -97,18 +93,32 @@
   engine: CeVIO AI
 
 -
+  url: https://www.nicovideo.jp/watch/sm40853323
+  startTime: 51
+  endTime: 80
+  chorusTime: 51
+  isHuman: false
+  title: シル・ヴ・プレジデント
+  artist: Ｐ丸様。
+  singer: ずんだもん
+  engine: NEUTRINO
+
+-
   url: https://www.youtube.com/watch?v=dJU_wawcwPk
   startTime: 102
   endTime: 122
+  chorusTime: 47
   isHuman: true
   title: きゅうくらりん
   artist: いよわ
   singer: るぅと
 
+# 要検討。
 -
   url: https://www.youtube.com/watch?v=KYSCYm0Km7k
   startTime: 58
   endTime: 88
+  chorusTime: 31
   isHuman: true
   title: トンデモワンダーズ
   artist: sasakure.UK
@@ -118,15 +128,18 @@
   url: https://www.youtube.com/watch?v=Vzx0IP8RHd8
   startTime: 124
   endTime: 154
+  chorusTime: 50
   isHuman: true
   title: 一番星
   artist: 北村瞳
   singer: 夕見子
 
+# 要検討。サビのほうが良さそう?
 -
   url: https://www.youtube.com/watch?v=m-icqIf1pbg
   startTime: 120
   endTime: 141
+  chorusTime: 72
   isHuman: false
   title: ピルグリム
   artist: 理芽
@@ -137,7 +150,19 @@
   url: https://www.youtube.com/watch?v=YHc5mNQQyNo
   startTime: 30
   endTime: 60
+  chorusTime: 61
   isHuman: true
   title: フォニイ
   artist: ツミキ
   singer: Sayri
+
+-
+  url: https://www.nicovideo.jp/watch/sm20428313
+  startTime: 26
+  endTime: 46
+  chorusTime: 49
+  isHuman: false
+  title: 魔界探偵社
+  artist: にょっすP
+  singer: 白鐘ヒスイ
+  engine: UTAU

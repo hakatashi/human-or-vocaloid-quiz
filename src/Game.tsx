@@ -44,13 +44,9 @@ const Game = ({tick, index, song, onFinish}: Prop) => {
 	const isCorrect = selectedOption === null ? null : selectedOption === song.isHuman;
 
 	const onPlayerReady = useCallback(() => {
-		console.log('ready');
-
-		if (playerEl.current) {
-			playerEl.current.seekTo(song.startTime);
-		}
+		playerEl.current?.seekTo(song.startTime);
 		setPlaying(true);
-	}, [tick]);
+	}, [song]);
 
 	const onClickOption = useCallback((option: boolean) => {
 		if (option === song.isHuman) {
@@ -83,6 +79,10 @@ const Game = ({tick, index, song, onFinish}: Prop) => {
 		}
 
 		const currentTime = playerEl.current.getCurrentTime();
+
+		if (currentTime < song.startTime) {
+			playerEl.current?.seekTo(song.startTime);
+		}
 
 		if (currentTime < song.startTime + FADE_DURATION) {
 			setVolume((currentTime - song.startTime) / FADE_DURATION);

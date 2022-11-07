@@ -19,7 +19,6 @@
 }
 
 .player {
-	/* visibility: hidden; */
 	display: inline-block;
 	position: relative;
 	max-width: 100vmin;
@@ -36,7 +35,7 @@
 	bottom: 0;
 	background: dimgrey;
 
-	display: none;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	transform: translateY(0%);
