@@ -2,14 +2,27 @@ import classNames from 'classnames';
 import {Howl, Howler} from 'howler';
 import React, {useCallback, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
-import songs from '../data/songs.yml';
 import style from './Game.module.css';
 
 const FADE_DURATION = 2;
 
+interface Song {
+	url: string,
+	startTime: number,
+	endTime: number,
+	isHuman: boolean,
+	title: string,
+	artist: string,
+	singer: string,
+	chorusTime: number,
+	engine?: string,
+}
+
 interface Prop {
 	tick: number,
 	index: number,
+	song: Song,
+	onFinish: () => void,
 }
 
 const correctSound = new Howl({
@@ -20,7 +33,7 @@ const incorrectSound = new Howl({
 	src: ['incorrect.mp3'],
 });
 
-const Game = ({tick, index}: Prop) => {
+const Game = ({tick, index, song, onFinish}: Prop) => {
 	const [playing, setPlaying] = useState(false);
 	const [volume, setVolume] = useState(1);
 	const [finished, setFinished] = useState(false);
@@ -28,11 +41,11 @@ const Game = ({tick, index}: Prop) => {
 	const [selectedOption, setSelectedOption] = useState<boolean | null>(null);
 	const playerEl = useRef<ReactPlayer>(null);
 
-	const song = songs[0];
-
 	const isCorrect = selectedOption === null ? null : selectedOption === song.isHuman;
 
 	const onPlayerReady = useCallback(() => {
+		console.log('ready');
+
 		if (playerEl.current) {
 			playerEl.current.seekTo(song.startTime);
 		}
@@ -164,7 +177,7 @@ const Game = ({tick, index}: Prop) => {
 							<button
 								type="button"
 								className={style.nextQuestion}
-								onClick={() => onClickOption(false)}
+								onClick={onFinish}
 							>
 								次の問題へ
 							</button>

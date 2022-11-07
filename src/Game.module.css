@@ -36,7 +36,7 @@
 	bottom: 0;
 	background: dimgrey;
 
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	transform: translateY(0%);

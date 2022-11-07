@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
+import songs from '../data/songs.yml';
 import style from './App.module.css';
 import Game from './Game';
 
@@ -7,6 +8,7 @@ type Phase = 'start' | 'game' | 'finish';
 
 const App = () => {
 	const [tick, setTick] = useState(0);
+	const [songIndex, setSongIndex] = useState(0);
 	const [phase, setPhase] = useState<Phase>('start');
 	const playerEl = useRef<ReactPlayer>(null);
 
@@ -21,6 +23,10 @@ const App = () => {
 
 	const onClickStart = useCallback(() => {
 		setPhase('game');
+	}, [playerEl]);
+
+	const onGameFinish = useCallback(() => {
+		setSongIndex((value) => value + 1);
 	}, [playerEl]);
 
 	return (
@@ -42,7 +48,7 @@ const App = () => {
 				</div>
 			)}
 			{phase === 'game' && (
-				<Game tick={tick} index={1}/>
+				<Game tick={tick} index={songIndex} song={songs[songIndex]} onFinish={onGameFinish}/>
 			)}
 		</div>
 	);
