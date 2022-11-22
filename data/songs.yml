@@ -1,4 +1,15 @@
 -
+  url: https://www.youtube.com/watch?v=2bWzRXgEqVI
+  startTime: 152
+  endTime: 182
+  chorusTime: 153
+  isHuman: false
+  title: Lemon
+  artist: 米津玄師
+  singer: 星尘Infinity
+  engine: SynthesizerV AI
+
+-
   url: https://www.youtube.com/watch?v=pIF-UiQCc7I
   startTime: 38
   endTime: 68
@@ -8,17 +19,7 @@
   artist: Ayase
   singer: dっと。
 
--
-  url: https://www.youtube.com/watch?v=o51Hd6YjCVI
-  startTime: 58
-  endTime: 90
-  chorusTime: 73
-  isHuman: false
-  title: ロウワー
-  artist: ぬゆり
-  singer: 夏色花梨
-  engine: Cevio AI
-
+# 歌い終わりの吐息が人間ぽかった
 -
   url: https://www.youtube.com/watch?v=AIAQ8Q5bj8c
   startTime: 124
@@ -29,16 +30,7 @@
   artist: Easypop
   singer: 魔乃アロエ
 
--
-  url: https://www.youtube.com/watch?v=6FaE_CBO2zk
-  startTime: 152
-  endTime: 190
-  chorusTime: 97
-  isHuman: true
-  title: 瞳を閉じて
-  artist: 平井堅
-  singer: 片瀬萌南
-
+# 騙せた
 -
   url: https://www.youtube.com/watch?v=lkel9YC3m68
   startTime: 47
@@ -50,16 +42,20 @@
   singer: Mai
   engine: SynthesizerV AI
 
+# 出だしはかなり人間っぽかったけど
+# サビの声質は人間っぽくなかった
 -
-  url: https://www.youtube.com/watch?v=Snn2gWq-3KY
-  startTime: 129
-  endTime: 148
-  chorusTime: 8
-  isHuman: true
-  title: Nyanyanyanyanyanyanya!
-  artist: daniwell
-  singer: 湊あくあ
+  url: https://www.youtube.com/watch?v=o51Hd6YjCVI
+  startTime: 58
+  endTime: 90
+  chorusTime: 73
+  isHuman: false
+  title: ロウワー
+  artist: ぬゆり
+  singer: 夏色花梨
+  engine: Cevio AI
 
+# 騙せた
 -
   url: https://www.youtube.com/watch?v=m1JaFPWGKRc
   startTime: 0
@@ -71,31 +67,11 @@
   singer: 花隈千冬
   engine: SynthesizerV AI
 
--
-  url: https://www.youtube.com/watch?v=z5iorD0UFgo
-  startTime: 10
-  endTime: 36
-  chorusTime: 61
-  isHuman: true
-  title: 気になるあの娘
-  artist: 相対性理論
-  singer: 花譜
-
--
-  url: https://www.youtube.com/watch?v=D0HvoG7PbR4
-  startTime: 16
-  endTime: 46
-  chorusTime: 32
-  isHuman: false
-  title: ただ一度とないあの夏へ
-  artist: 椎乃味醂
-  singer: 可不・初音ミク
-  engine: CeVIO AI
-
+# 一箇所小声の「あ」がボカロぽかった
 -
   url: https://www.nicovideo.jp/watch/sm40853323
-  startTime: 51
-  endTime: 80
+  startTime: 115
+  endTime: 140
   chorusTime: 51
   isHuman: false
   title: シル・ヴ・プレジデント
@@ -103,6 +79,8 @@
   singer: ずんだもん
   engine: NEUTRINO
 
+# 小声の「い」が機械ぽかった。けど高音だったので人間っぽさもあるかなと思って人間を選択
+# 歌がうまいので人間 (?)
 -
   url: https://www.youtube.com/watch?v=dJU_wawcwPk
   startTime: 102
@@ -113,7 +91,7 @@
   artist: いよわ
   singer: るぅと
 
-# 要検討。
+# 騙せた。
 -
   url: https://www.youtube.com/watch?v=KYSCYm0Km7k
   startTime: 58
@@ -124,6 +102,8 @@
   artist: sasakure.UK
   singer: mami (有形ランペイジ)
 
+# 騙せた
+# 最後の音の伸びが正弦波の塊っぽかった
 -
   url: https://www.youtube.com/watch?v=Vzx0IP8RHd8
   startTime: 124
@@ -134,7 +114,7 @@
   artist: 北村瞳
   singer: 夕見子
 
-# 要検討。サビのほうが良さそう?
+# 「天国」ってワードがかなり「あいうえお」のどれでもない母音っぽくて人間っぽさを感じた
 -
   url: https://www.youtube.com/watch?v=m-icqIf1pbg
   startTime: 120
@@ -146,6 +126,8 @@
   singer: 裏命
   engine: Cevio AI
 
+# 「う」の音がボカロぽかった
+# 騙せた
 -
   url: https://www.youtube.com/watch?v=YHc5mNQQyNo
   startTime: 30
@@ -155,14 +137,3 @@
   title: フォニイ
   artist: ツミキ
   singer: Sayri
-
--
-  url: https://www.nicovideo.jp/watch/sm20428313
-  startTime: 26
-  endTime: 46
-  chorusTime: 49
-  isHuman: false
-  title: 魔界探偵社
-  artist: にょっすP
-  singer: 白鐘ヒスイ
-  engine: UTAU

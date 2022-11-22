@@ -1,4 +1,4 @@
-import React, {useCallback, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
 import songs from '../data/songs.yml';
 import style from './App.module.css';
@@ -10,14 +10,20 @@ const App = () => {
 	const [songIndex, setSongIndex] = useState(0);
 	const [phase, setPhase] = useState<Phase>('start');
 	const playerEl = useRef<ReactPlayer>(null);
+	const [results, setResults] = useState<{correct: boolean}[]>([]);
 
 	const onClickStart = useCallback(() => {
 		setPhase('game');
 	}, [playerEl]);
 
-	const onGameFinish = useCallback(() => {
-		setSongIndex((value) => value + 1);
-	}, [playerEl]);
+	const onGameFinish = useCallback((result: {correct: boolean}) => {
+		setResults((value) => [...value, result]);
+		if (songIndex === songs.length - 1) {
+			setPhase('finish');
+		} else {
+			setSongIndex((value) => value + 1);
+		}
+	}, [playerEl, songIndex]);
 
 	return (
 		<div className={style.root}>
@@ -39,6 +45,13 @@ const App = () => {
 			)}
 			{phase === 'game' && (
 				<Game key={songIndex} index={songIndex + 1} song={songs[songIndex]} onFinish={onGameFinish}/>
+			)}
+			{phase === 'finish' && (
+				<div>
+					<h1>終わりです お疲れ様でした</h1>
+					<p>{results.filter((result) => result.correct).length}問正解:tada:</p>
+					<p>{JSON.stringify(results)}</p>
+				</div>
 			)}
 		</div>
 	);

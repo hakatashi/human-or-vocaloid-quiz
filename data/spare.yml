@@ -1,0 +1,55 @@
+# 「にゃ」が「な」になっているのが人間ぽかった
+-
+  url: https://www.youtube.com/watch?v=Snn2gWq-3KY
+  startTime: 129
+  endTime: 148
+  chorusTime: 8
+  isHuman: true
+  title: Nyanyanyanyanyanyanya!
+  artist: daniwell
+  singer: 湊あくあ
+
+# 吐息が人間ぽかった
+-
+  url: https://www.youtube.com/watch?v=z5iorD0UFgo
+  startTime: 10
+  endTime: 36
+  chorusTime: 61
+  isHuman: true
+  title: 気になるあの娘
+  artist: 相対性理論
+  singer: 花譜
+
+# 100人間
+-
+  url: https://www.youtube.com/watch?v=6FaE_CBO2zk
+  startTime: 152
+  endTime: 190
+  chorusTime: 97
+  isHuman: true
+  title: 瞳を閉じて
+  artist: 平井堅
+  singer: 片瀬萌南
+
+# 前半はかなり人間っぽいけど「あおあお」の部分が機械ぽかった
+-
+  url: https://www.youtube.com/watch?v=D0HvoG7PbR4
+  startTime: 16
+  endTime: 46
+  chorusTime: 32
+  isHuman: false
+  title: ただ一度とないあの夏へ
+  artist: 椎乃味醂
+  singer: 可不・初音ミク
+  engine: CeVIO AI
+
+-
+  url: https://www.youtube.com/watch?v=20tzTOredQM
+  startTime: 58
+  endTime: 78
+  chorusTime: 58
+  isHuman: false
+  title: フューチャー・イブ
+  artist: sasakure.UK
+  singer: kzn
+  engine: CeVIO AI

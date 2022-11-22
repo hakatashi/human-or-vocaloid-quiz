@@ -19,10 +19,9 @@ interface Song {
 }
 
 interface Prop {
-	tick: number,
 	index: number,
 	song: Song,
-	onFinish: () => void,
+	onFinish: (result: {correct: boolean}) => void,
 }
 
 const correctSound = new Howl({
@@ -33,7 +32,7 @@ const incorrectSound = new Howl({
 	src: ['incorrect.mp3'],
 });
 
-const Game = ({tick, index, song, onFinish}: Prop) => {
+const Game = ({index, song, onFinish}: Prop) => {
 	const [playing, setPlaying] = useState(false);
 	const [volume, setVolume] = useState(1);
 	const [finished, setFinished] = useState(false);
@@ -102,7 +101,7 @@ const Game = ({tick, index, song, onFinish}: Prop) => {
 		<div>
 			<div className={style.descriptionSection}>
 				<div className={style.questionSection}>
-					<h2>第{index}/10問</h2>
+					<h2>第{index}/12問</h2>
 					<p>この歌声、<span className="human">人間？</span> <span className="vocaloid">ボカロ？</span></p>
 					<div className={style.options}>
 						<button
@@ -177,7 +176,9 @@ const Game = ({tick, index, song, onFinish}: Prop) => {
 							<button
 								type="button"
 								className={style.nextQuestion}
-								onClick={onFinish}
+								onClick={() => {
+									onFinish({correct: isCorrect!});
+								}}
 							>
 								次の問題へ
 							</button>
