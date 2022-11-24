@@ -5,3 +5,25 @@
 .card {
 	padding: 2em;
 }
+
+.results {
+	list-style: none;
+}
+
+.results .index {
+	display: inline-block;
+	width: 4em;
+}
+
+.results .result {
+	display: inline-block;
+	width: 4em;
+}
+
+.results .result.correct {
+	color: #f44336;
+}
+
+.results .result.wrong {
+	color: #2196f3;
+}

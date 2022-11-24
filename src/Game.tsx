@@ -6,7 +6,6 @@ import ReactPlayer from 'react-player';
 import style from './Game.module.css';
 import {db} from './lib/firebase';
 
-
 const FADE_DURATION = 2;
 
 interface Song {
@@ -24,7 +23,11 @@ interface Song {
 interface Prop {
 	index: number,
 	song: Song,
-	onFinish: (result: {correct: boolean}) => void,
+	onFinish: (result: {
+		isHuman: boolean,
+		selectedOption: boolean,
+		isCorrect: boolean,
+	}) => void,
 	sessionId: string,
 }
 
@@ -193,7 +196,11 @@ const Game = ({index, song, onFinish, sessionId}: Prop) => {
 								type="button"
 								className={style.nextQuestion}
 								onClick={() => {
-									onFinish({correct: isCorrect!});
+									onFinish({
+										isHuman: song.isHuman,
+										selectedOption,
+										isCorrect: isCorrect!,
+									});
 								}}
 							>
 								次の問題へ
