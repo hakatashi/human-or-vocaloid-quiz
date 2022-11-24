@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
+    "firebase": "^9.14.0",
     "howler": "^2.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-player": "hakatashi/react-player#niconico-dist"
+    "react-player": "hakatashi/react-player#niconico-dist",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@hakatashi/eslint-config": "^1.19.0",

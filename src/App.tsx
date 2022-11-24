@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
+import {v4 as uuid} from 'uuid';
 import songs from '../data/songs.yml';
 import style from './App.module.css';
 import Game from './Game';
@@ -11,6 +12,11 @@ const App = () => {
 	const [phase, setPhase] = useState<Phase>('start');
 	const playerEl = useRef<ReactPlayer>(null);
 	const [results, setResults] = useState<{correct: boolean}[]>([]);
+	const [sessionId, setSessionId] = useState('');
+
+	useEffect(() => {
+		setSessionId(uuid());
+	}, []);
 
 	const onClickStart = useCallback(() => {
 		setPhase('game');
@@ -44,7 +50,13 @@ const App = () => {
 				</div>
 			)}
 			{phase === 'game' && (
-				<Game key={songIndex} index={songIndex + 1} song={songs[songIndex]} onFinish={onGameFinish}/>
+				<Game
+					key={songIndex}
+					index={songIndex + 1}
+					song={songs[songIndex]}
+					onFinish={onGameFinish}
+					sessionId={sessionId}
+				/>
 			)}
 			{phase === 'finish' && (
 				<div>

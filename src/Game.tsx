@@ -1,8 +1,11 @@
 import classNames from 'classnames';
-import {Howl, Howler} from 'howler';
+import {collection, addDoc} from 'firebase/firestore';
+import {Howl} from 'howler';
 import React, {useCallback, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
 import style from './Game.module.css';
+import {db} from './lib/firebase';
+
 
 const FADE_DURATION = 2;
 
@@ -22,6 +25,7 @@ interface Prop {
 	index: number,
 	song: Song,
 	onFinish: (result: {correct: boolean}) => void,
+	sessionId: string,
 }
 
 const correctSound = new Howl({
@@ -32,7 +36,7 @@ const incorrectSound = new Howl({
 	src: ['incorrect.mp3'],
 });
 
-const Game = ({index, song, onFinish}: Prop) => {
+const Game = ({index, song, onFinish, sessionId}: Prop) => {
 	const [playing, setPlaying] = useState(false);
 	const [volume, setVolume] = useState(1);
 	const [finished, setFinished] = useState(false);
@@ -47,7 +51,7 @@ const Game = ({index, song, onFinish}: Prop) => {
 		setPlaying(true);
 	}, [song]);
 
-	const onClickOption = useCallback((option: boolean) => {
+	const onClickOption = useCallback(async (option: boolean) => {
 		if (option === song.isHuman) {
 			correctSound.play();
 		} else {
@@ -58,7 +62,19 @@ const Game = ({index, song, onFinish}: Prop) => {
 		setPlaying(true);
 		setVolume(1);
 		playerEl.current?.seekTo(song.chorusTime);
-	}, []);
+
+		const isCorrect = option === song.isHuman;
+
+		await addDoc(collection(db, 'vocaloid_quiz_answers'), {
+			song,
+			index,
+			replayCount,
+			selectedOption: option,
+			isCorrect,
+			sessionId,
+			date: new Date(),
+		});
+	}, [song, index, replayCount, selectedOption, sessionId, isCorrect]);
 
 	const onClickReplay = useCallback(() => {
 		if (replayCount <= 0) {
