@@ -23,6 +23,7 @@ interface Song {
 interface Prop {
 	index: number,
 	song: Song,
+	isLastSong: boolean,
 	onFinish: (result: {
 		isHuman: boolean,
 		selectedOption: boolean,
@@ -39,7 +40,7 @@ const incorrectSound = new Howl({
 	src: ['incorrect.mp3'],
 });
 
-const Game = ({index, song, onFinish, sessionId}: Prop) => {
+const Game = ({index, song, isLastSong, onFinish, sessionId}: Prop) => {
 	const [playing, setPlaying] = useState(false);
 	const [volume, setVolume] = useState(1);
 	const [finished, setFinished] = useState(false);
@@ -203,7 +204,7 @@ const Game = ({index, song, onFinish, sessionId}: Prop) => {
 									});
 								}}
 							>
-								次の問題へ
+								{isLastSong ? '結果発表' : '次の問題へ'}
 							</button>
 						</div>
 					</div>

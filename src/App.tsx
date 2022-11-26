@@ -89,6 +89,7 @@ const App = () => {
 					key={songIndex}
 					index={songIndex + 1}
 					song={songs[songIndex]}
+					isLastSong={songIndex === songs.length - 1}
 					onFinish={onGameFinish}
 					sessionId={sessionId}
 				/>
