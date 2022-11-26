@@ -15,6 +15,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "hakatashi/react-player#niconico-dist",
+    "react-share": "^4.4.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
