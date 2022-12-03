@@ -10,28 +10,6 @@
   engine: SynthesizerV AI
 
 -
-  url: https://www.youtube.com/watch?v=pIF-UiQCc7I
-  startTime: 38
-  endTime: 68
-  chorusTime: 58
-  isHuman: true
-  title: シニカルナイトプラン
-  artist: Ayase
-  singer: dっと。
-
-# 歌い終わりの吐息が人間ぽかった
--
-  url: https://www.youtube.com/watch?v=AIAQ8Q5bj8c
-  startTime: 124
-  endTime: 154
-  chorusTime: 70
-  isHuman: true
-  title: ハッピーシンセサイザ
-  artist: Easypop
-  singer: 魔乃アロエ
-
-# 騙せた
--
   url: https://www.youtube.com/watch?v=lkel9YC3m68
   startTime: 47
   endTime: 77
@@ -42,8 +20,16 @@
   singer: Mai
   engine: SynthesizerV AI
 
-# 出だしはかなり人間っぽかったけど
-# サビの声質は人間っぽくなかった
+-
+  url: https://www.youtube.com/watch?v=KYSCYm0Km7k
+  startTime: 58
+  endTime: 88
+  chorusTime: 31
+  isHuman: true
+  title: トンデモワンダーズ
+  artist: sasakure.UK
+  singer: mami (有形ランペイジ)
+
 -
   url: https://www.youtube.com/watch?v=o51Hd6YjCVI
   startTime: 58
@@ -55,7 +41,6 @@
   singer: 夏色花梨
   engine: Cevio AI
 
-# 騙せた
 -
   url: https://www.youtube.com/watch?v=m1JaFPWGKRc
   startTime: 0
@@ -67,9 +52,9 @@
   singer: 花隈千冬
   engine: SynthesizerV AI
 
-# 一箇所小声の「あ」がボカロぽかった
 -
-  url: https://www.nicovideo.jp/watch/sm40853323
+  url: https://www.youtube.com/watch?v=RBEin8n7xXc
+  originalUrl: https://www.nicovideo.jp/watch/sm40853323
   startTime: 115
   endTime: 140
   chorusTime: 51
@@ -79,8 +64,17 @@
   singer: ずんだもん
   engine: NEUTRINO
 
-# 小声の「い」が機械ぽかった。けど高音だったので人間っぽさもあるかなと思って人間を選択
-# 歌がうまいので人間 (?)
+-
+  url: https://www.youtube.com/watch?v=y0e_o71CG3M
+  startTime: 20
+  endTime: 50
+  chorusTime: 165
+  isHuman: false
+  title: Can You Hear My Heart?
+  artist: picco
+  singer: 弦巻マキ
+  engine: SynthesizerV AI
+
 -
   url: https://www.youtube.com/watch?v=dJU_wawcwPk
   startTime: 102
@@ -91,19 +85,6 @@
   artist: いよわ
   singer: るぅと
 
-# 騙せた。
--
-  url: https://www.youtube.com/watch?v=KYSCYm0Km7k
-  startTime: 58
-  endTime: 88
-  chorusTime: 31
-  isHuman: true
-  title: トンデモワンダーズ
-  artist: sasakure.UK
-  singer: mami (有形ランペイジ)
-
-# 騙せた
-# 最後の音の伸びが正弦波の塊っぽかった
 -
   url: https://www.youtube.com/watch?v=Vzx0IP8RHd8
   startTime: 124
@@ -114,20 +95,6 @@
   artist: 北村瞳
   singer: 夕見子
 
-# 「天国」ってワードがかなり「あいうえお」のどれでもない母音っぽくて人間っぽさを感じた
--
-  url: https://www.youtube.com/watch?v=m-icqIf1pbg
-  startTime: 120
-  endTime: 141
-  chorusTime: 72
-  isHuman: false
-  title: ピルグリム
-  artist: 理芽
-  singer: 裏命
-  engine: Cevio AI
-
-# 「う」の音がボカロぽかった
-# 騙せた
 -
   url: https://www.youtube.com/watch?v=YHc5mNQQyNo
   startTime: 30

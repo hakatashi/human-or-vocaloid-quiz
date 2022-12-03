@@ -1,4 +1,3 @@
-# 「にゃ」が「な」になっているのが人間ぽかった
 -
   url: https://www.youtube.com/watch?v=Snn2gWq-3KY
   startTime: 129
@@ -9,7 +8,6 @@
   artist: daniwell
   singer: 湊あくあ
 
-# 吐息が人間ぽかった
 -
   url: https://www.youtube.com/watch?v=z5iorD0UFgo
   startTime: 10
@@ -20,7 +18,6 @@
   artist: 相対性理論
   singer: 花譜
 
-# 100人間
 -
   url: https://www.youtube.com/watch?v=6FaE_CBO2zk
   startTime: 152
@@ -31,7 +28,6 @@
   artist: 平井堅
   singer: 片瀬萌南
 
-# 前半はかなり人間っぽいけど「あおあお」の部分が機械ぽかった
 -
   url: https://www.youtube.com/watch?v=D0HvoG7PbR4
   startTime: 16
@@ -53,3 +49,34 @@
   artist: sasakure.UK
   singer: kzn
   engine: CeVIO AI
+
+-
+  url: https://www.youtube.com/watch?v=pIF-UiQCc7I
+  startTime: 38
+  endTime: 68
+  chorusTime: 58
+  isHuman: true
+  title: シニカルナイトプラン
+  artist: Ayase
+  singer: dっと。
+
+-
+  url: https://www.youtube.com/watch?v=m-icqIf1pbg
+  startTime: 120
+  endTime: 141
+  chorusTime: 72
+  isHuman: false
+  title: ピルグリム
+  artist: 理芽
+  singer: 裏命
+  engine: Cevio AI
+
+-
+  url: https://www.youtube.com/watch?v=AIAQ8Q5bj8c
+  startTime: 124
+  endTime: 154
+  chorusTime: 70
+  isHuman: true
+  title: ハッピーシンセサイザ
+  artist: Easypop
+  singer: 魔乃アロエ

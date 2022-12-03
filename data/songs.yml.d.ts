@@ -1,5 +1,6 @@
 interface Song {
 	url: string,
+	originalUrl?: string,
 	startTime: number,
 	endTime: number,
 	isHuman: boolean,
