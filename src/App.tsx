@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import {Howl} from 'howler';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
+import {TwitterIcon, TwitterShareButton, FacebookIcon, FacebookShareButton, LineIcon, LineShareButton} from 'react-share';
 import {v4 as uuid} from 'uuid';
 import songs from '../data/songs.yml';
 import style from './App.module.css';
@@ -30,16 +31,28 @@ const App = () => {
 	const [results, setResults] = useState<Result[]>([]);
 	const [sessionId, setSessionId] = useState('');
 	const [resultShownIndex, setResultShownIndex] = useState(0);
+	const correctCount = results.filter((result) => result.isCorrect).length;
+	const shareText = (
+		`人間かボカロかクイズで${results.length}問中${correctCount}問正解しました!\n`
+		+ results.map((result) => result.isCorrect ? '🟩' : '⬜').join('')
+	);
+	const shareUrl = location.href.replace(location.hash, "");
 
 	const onQuizFinish = (index: number) => {
 		setResultShownIndex(index);
 		if (index > 0) {
 			drumSound.play();
 		}
-		if (index === songs.length) {
+		if (index === songs.length + 1) {
+			setTimeout(() => {
+				setResultShownIndex(index + 1);
+			}, 2000);
+		}
+		else if (index === songs.length) {
 			setTimeout(() => {
 				setResultShownIndex(index + 1);
 				doraSound.play();
+				onQuizFinish(index + 1);
 			}, 1000);
 		} else {
 			setTimeout(() => {
@@ -90,6 +103,7 @@ const App = () => {
 					index={songIndex + 1}
 					totalLength={songs.length}
 					song={songs[songIndex]}
+					isLastSong={songIndex === songs.length - 1}
 					onFinish={onGameFinish}
 					sessionId={sessionId}
 				/>
@@ -115,9 +129,35 @@ const App = () => {
 					</ol>
 					<p
 						style={{
-							visibility: resultShownIndex === songs.length + 1 ? 'visible' : 'hidden',
+							visibility: resultShownIndex >= songs.length + 1 ? 'visible' : 'hidden',
 						}}
-					>{results.filter((result) => result.isCorrect).length}問正解🎉
+					>
+						{correctCount}問正解🎉
+					</p>
+					<p
+						className="share"
+						style={{
+							visibility: resultShownIndex >= songs.length + 2 ? 'visible' : 'hidden',
+						}}
+					>
+						<TwitterShareButton
+							title={shareText}
+							url={shareUrl}
+						>
+							<TwitterIcon size="1em" />
+						</TwitterShareButton>
+						<FacebookShareButton
+							quote={shareText}
+							url={shareUrl}
+						>
+							<FacebookIcon size="1em" />
+						</FacebookShareButton>
+						<LineShareButton
+							title={shareText}
+							url={shareUrl}
+						>
+							<LineIcon size="1em" />
+						</LineShareButton>
 					</p>
 				</div>
 			)}
