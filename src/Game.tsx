@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import {collection, addDoc} from 'firebase/firestore';
 import {Howl} from 'howler';
-import React, {useCallback, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import ReactPlayer from 'react-player';
 import style from './Game.module.css';
 import {db} from './lib/firebase';
@@ -22,6 +22,7 @@ interface Song {
 
 interface Prop {
 	index: number,
+	totalLength: number,
 	song: Song,
 	onFinish: (result: {
 		isHuman: boolean,
@@ -39,20 +40,55 @@ const incorrectSound = new Howl({
 	src: ['incorrect.mp3'],
 });
 
-const Game = ({index, song, onFinish, sessionId}: Prop) => {
+const Game = ({index, song, onFinish, sessionId, totalLength}: Prop) => {
 	const [playing, setPlaying] = useState(false);
+	const [isPlayerInitialized, setIsPlayerInitialized] = useState(false);
 	const [volume, setVolume] = useState(1);
 	const [finished, setFinished] = useState(false);
 	const [replayCount, setReplayCount] = useState(1);
 	const [selectedOption, setSelectedOption] = useState<boolean | null>(null);
+	const [showPlayButton, setShowPlayButton] = useState(false);
+	const [debug, setDebug] = useState('');
 	const playerEl = useRef<ReactPlayer>(null);
 
 	const isCorrect = selectedOption === null ? null : selectedOption === song.isHuman;
 
+	const isPlayable = useCallback(() => {
+		if (!isPlayerInitialized) {
+			return false;
+		}
+
+		if (!playing) {
+			return true;
+		}
+
+		if (!playerEl.current) {
+			return false;
+		}
+
+		return true;
+	}, [playing]);
+
+	const isPlayableCheckin = useCallback(() => {
+		if (isPlayable()) {
+			return;
+		}
+		setShowPlayButton(true);
+	}, [isPlayable]);
+
+	useEffect(() => {
+		setTimeout(() => {
+			console.log('checkin');
+			isPlayableCheckin();
+		}, 3000);
+	}, []);
+
 	const onPlayerReady = useCallback(() => {
 		playerEl.current?.seekTo(song.startTime);
 		setPlaying(true);
-	}, [song]);
+		setIsPlayerInitialized(true);
+		setShowPlayButton(false);
+	}, [song, isPlayableCheckin]);
 
 	const onClickOption = useCallback(async (option: boolean) => {
 		if (option === song.isHuman) {
@@ -66,14 +102,12 @@ const Game = ({index, song, onFinish, sessionId}: Prop) => {
 		setVolume(1);
 		playerEl.current?.seekTo(song.chorusTime);
 
-		const isCorrect = option === song.isHuman;
-
 		await addDoc(collection(db, 'vocaloid_quiz_answers'), {
 			song,
 			index,
 			replayCount,
 			selectedOption: option,
-			isCorrect,
+			isCorrect: option === song.isHuman,
 			sessionId,
 			date: new Date(),
 		});
@@ -91,12 +125,18 @@ const Game = ({index, song, onFinish, sessionId}: Prop) => {
 		setReplayCount(replayCount - 1);
 	}, [replayCount, playerEl]);
 
-	const onPlayerProgress = useCallback(() => {
+	const onTick = useCallback(() => {
 		if (!playerEl.current || selectedOption !== null) {
 			return;
 		}
 
 		const currentTime = playerEl.current.getCurrentTime();
+		setDebug(JSON.stringify({
+			playerEl: playerEl.current !== undefined,
+			selectedOption,
+			currentTime,
+			startTime: song.startTime,
+		}));
 
 		if (currentTime < song.startTime) {
 			playerEl.current?.seekTo(song.startTime);
@@ -116,11 +156,25 @@ const Game = ({index, song, onFinish, sessionId}: Prop) => {
 		}
 	}, [playerEl, finished, selectedOption]);
 
+	const onPlayerProgress = useCallback(() => {
+		setShowPlayButton(false);
+		onTick();
+	}, [onTick]);
+
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			onTick();
+		}, 1000);
+		return () => {
+			clearInterval(intervalId);
+		};
+	}, [onTick]);
+
 	return (
 		<div>
 			<div className={style.descriptionSection}>
 				<div className={style.questionSection}>
-					<h2>第{index}/12問</h2>
+					<h2>第{index}/{totalLength}問</h2>
 					<p>この歌声、<span className="human">人間？</span> <span className="vocaloid">ボカロ？</span></p>
 					<div className={style.options}>
 						<button
@@ -210,8 +264,21 @@ const Game = ({index, song, onFinish, sessionId}: Prop) => {
 				)}
 			</div>
 			<div className={style.player}>
-				<div className={classNames(style.playerOverlay, {[style.hidden]: selectedOption !== null})}>
-					{finished ? (
+				<div
+					className={classNames(style.playerOverlay, {
+						[style.hidden]: selectedOption !== null,
+						[style.hasPlayButton]: showPlayButton,
+					})}
+				>
+					{showPlayButton && (
+						<button
+							type="button"
+							className={style.playButton}
+						>
+							再生されない場合<br/>ここをクリック
+						</button>
+					)}
+					{finished && (
 						<button
 							type="button"
 							className={classNames(
@@ -222,7 +289,8 @@ const Game = ({index, song, onFinish, sessionId}: Prop) => {
 						>
 							リプレイ (あと{replayCount}回)
 						</button>
-					) : (
+					)}
+					{!showPlayButton && !finished && (
 						'♪♪♪'
 					)}
 				</div>

@@ -48,10 +48,17 @@
 	transform: translateY(-100%);
 }
 
+.playerOverlay.hasPlayButton {
+	pointer-events: none;
+}
+
+.playButton {
+	font-size: 10px;
+}
+
 .replayButton {
 	font-size: 20px;
 }
-
 
 .replayButton.disabled {
 	opacity: 0.5;

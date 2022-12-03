@@ -88,6 +88,7 @@ const App = () => {
 				<Game
 					key={songIndex}
 					index={songIndex + 1}
+					totalLength={songs.length}
 					song={songs[songIndex]}
 					onFinish={onGameFinish}
 					sessionId={sessionId}
