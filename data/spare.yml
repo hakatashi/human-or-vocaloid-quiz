@@ -80,3 +80,22 @@
   title: ハッピーシンセサイザ
   artist: Easypop
   singer: 魔乃アロエ
+
+-
+  url: https://www.youtube.com/watch?v=QoiRbXuMZQY
+  startTime: 60
+  endTime: 90
+  chorusTime: 124
+  title: いつも何度でも
+  artist: 木村弓
+  singer: 花隈千冬
+  engine: SynthesizerV AI
+
+-
+  url: https://www.youtube.com/watch?v=QB1q0aVpHek
+  startTime: 53
+  endTime: 83
+  chorusTime: 81
+  title: セツナトリップ
+  artist: Last Note
+  singer: Millie Parfait

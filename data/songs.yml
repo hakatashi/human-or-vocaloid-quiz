@@ -65,6 +65,16 @@
   engine: NEUTRINO
 
 -
+  url: https://www.youtube.com/watch?v=dJU_wawcwPk
+  startTime: 102
+  endTime: 122
+  chorusTime: 47
+  isHuman: true
+  title: きゅうくらりん
+  artist: いよわ
+  singer: るぅと
+
+-
   url: https://www.youtube.com/watch?v=y0e_o71CG3M
   startTime: 20
   endTime: 50
@@ -74,16 +84,6 @@
   artist: picco
   singer: 弦巻マキ
   engine: SynthesizerV AI
-
--
-  url: https://www.youtube.com/watch?v=dJU_wawcwPk
-  startTime: 102
-  endTime: 122
-  chorusTime: 47
-  isHuman: true
-  title: きゅうくらりん
-  artist: いよわ
-  singer: るぅと
 
 -
   url: https://www.youtube.com/watch?v=Vzx0IP8RHd8
