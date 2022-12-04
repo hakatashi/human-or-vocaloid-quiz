@@ -33,10 +33,10 @@ const App = () => {
 	const [resultShownIndex, setResultShownIndex] = useState(0);
 	const correctCount = results.filter((result) => result.isCorrect).length;
 	const shareText = (
-		`人間かボカロかクイズで${results.length}問中${correctCount}問正解しました!\n`
-		+ results.map((result) => result.isCorrect ? '🟩' : '⬜').join('')
+		`人間かボカロかクイズで${results.length}問中${correctCount}問正解しました!\n${
+		 results.map((result) => result.isCorrect ? '🟩' : '⬜').join('')}`
 	);
-	const shareUrl = location.href.replace(location.hash, "");
+	const shareUrl = location.href.replace(location.hash, '');
 
 	const onQuizFinish = (index: number) => {
 		setResultShownIndex(index);
@@ -47,8 +47,7 @@ const App = () => {
 			setTimeout(() => {
 				setResultShownIndex(index + 1);
 			}, 2000);
-		}
-		else if (index === songs.length) {
+		} else if (index === songs.length) {
 			setTimeout(() => {
 				setResultShownIndex(index + 1);
 				doraSound.play();
@@ -103,7 +102,6 @@ const App = () => {
 					index={songIndex + 1}
 					totalLength={songs.length}
 					song={songs[songIndex]}
-					isLastSong={songIndex === songs.length - 1}
 					onFinish={onGameFinish}
 					sessionId={sessionId}
 				/>
@@ -144,19 +142,19 @@ const App = () => {
 							title={shareText}
 							url={shareUrl}
 						>
-							<TwitterIcon size="1em" />
+							<TwitterIcon size="1em"/>
 						</TwitterShareButton>
 						<FacebookShareButton
 							quote={shareText}
 							url={shareUrl}
 						>
-							<FacebookIcon size="1em" />
+							<FacebookIcon size="1em"/>
 						</FacebookShareButton>
 						<LineShareButton
 							title={shareText}
 							url={shareUrl}
 						>
-							<LineIcon size="1em" />
+							<LineIcon size="1em"/>
 						</LineShareButton>
 					</p>
 				</div>
