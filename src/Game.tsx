@@ -257,7 +257,7 @@ const Game = ({index, song, onFinish, sessionId, totalLength}: Prop) => {
 									});
 								}}
 							>
-								{index === totalLength - 1 ? '結果発表' : '次の問題へ'}
+								{index === totalLength ? '結果発表' : '次の問題へ'}
 							</button>
 						</div>
 					</div>
